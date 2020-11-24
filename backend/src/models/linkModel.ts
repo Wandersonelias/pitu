@@ -32,3 +32,4 @@ const LinkModel = database.define<ILinkModel>('link',{
 
 
 
+export default LinkModel;
