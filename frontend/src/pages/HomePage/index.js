@@ -4,6 +4,7 @@ import shortnerService from '../../services/shortnerService';
 import Header from '../../components/Header';
 import {Form,ContentContainer,AdsBlock} from './styles';
 import ShortnerService from '../../services/shortnerService';
+import vars from '../../config/vars';
 
 class HomePage extends React.Component{
     constructor(props){
@@ -69,14 +70,14 @@ class HomePage extends React.Component{
                                         <FormControl
                                                     autoFocus={true} 
                                                     placeholder="Digite a Url para encurtar"
-                                                    defaultValue={`https://pitu.tk/${this.state.code}`}
+                                                    defaultValue={vars.HOST_APP+this.state.code}
                                                     ref={(input) => this.inputURL = input} />
                                         <InputGroup.Append>
                                             <Button variant="outline-secondary" onClick={() => this.copyToClipboard}>Copiar</Button>
                                         </InputGroup.Append>
                         
                                     </InputGroup>
-                                    <p>Para acompanhar as estatisticas, acesse <b>{`https://pitu.tk/${this.state.code}`}</b></p>
+                                    <p>Para acompanhar as estatisticas, acesse <b>{vars.HOST_APP+this.state.code}</b></p>
                                 </>
                             )
                         )}

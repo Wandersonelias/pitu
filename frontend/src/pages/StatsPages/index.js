@@ -5,7 +5,7 @@ import ShortnerService from '../../services/shortnerService';
 import {StatsContainer,StatsRow,StatsBox,StatsTitle} from './styles';
 
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-
+import vars from '../../config/vars';
 import { parseISO, formatRelative } from 'date-fns';
 import ptBR from 'date-fns/locale/pt-BR';
 class StatsPage extends React.Component{
@@ -54,7 +54,7 @@ class StatsPage extends React.Component{
                     </StatsContainer>
                 ) : (
                     <StatsContainer className="text-center">
-                        <p><b>https://pitu.tk/{this.state.shotnerURL.code}</b></p>
+                        <p><b>{vars.HOST_APP+this.state.shotnerURL.code}</b></p>
                         <p>Redireciona para:<br/>{this.state.shotnerURL.url}</p>
                     <StatsRow>
                         <StatsBox>
