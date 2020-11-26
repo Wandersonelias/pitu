@@ -49,7 +49,7 @@ class HomePage extends React.Component{
     render(){
         return (
             <Container>
-                <Header>Seu novo encurtador de URL. :)</Header>
+                <Header>Seu novo encurtador de URL 🐶</Header>
                 <ContentContainer>
                     <Form onSubmit={this.handlerSubmit}>
                         <InputGroup className="mb-3">
@@ -78,12 +78,17 @@ class HomePage extends React.Component{
                         
                                     </InputGroup>
                                     <p>Para acompanhar as estatisticas, acesse <b>{vars.HOST_APP+this.state.code}</b></p>
+                                    <ContentContainer>
+                                    <img src={`https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=${vars.HOST_APP+this.state.code}`}/>
+                                    </ContentContainer>
                                 </>
                             )
                         )}
                         {this.state.erroMessage && <Alert variant="danger">{this.state.erroMessage}</Alert>}
                     </Form>
                 </ContentContainer>
+               
+                
                 <ContentContainer>
                     <AdsBlock>Adsense</AdsBlock>
                 </ContentContainer>
