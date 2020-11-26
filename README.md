@@ -14,3 +14,4 @@ Dominio: http://www.dogli.me - obs: Digite o endereco conforme exemplo
 
 Farei melhorias para uso comercial deste projeto 
 Com novas features que já estou pensando
+E tambem criarei um identidade visual para o produto conforme o dominio
