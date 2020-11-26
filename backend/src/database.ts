@@ -1,7 +1,8 @@
 import {Sequelize} from 'sequelize';
 
-const sequelize = new Sequelize('pitu','wanderson','regina',{
-    host: 'localhost',
+const sequelize = new Sequelize('pitu','wandersondogli','regina10',{
+    host: 'mysql741.umbler.com',
+    port: 41890,
     dialect: "mysql"
 });
 
