@@ -1,11 +1,11 @@
 import React from 'react';
 import {Container,FormControl, InputGroup, Button, Alert, Spinner} from 'react-bootstrap';
-import shortnerService from '../../services/shortnerService';
+//import shortnerService from '../../services/shortnerService';
 import Header from '../../components/Header';
 import {Form,ContentContainer,AdsBlock} from './styles';
 import ShortnerService from '../../services/shortnerService';
 import vars from '../../config/vars';
-
+import NavBar from '../../components/Navbar/index';
 class HomePage extends React.Component{
     constructor(props){
         super(props);
@@ -43,11 +43,14 @@ class HomePage extends React.Component{
     copyToClipboard = () => {
         const element = this.inputURL;
         element.select();
-        document.execCommand('copy');
+        document.execCommand('copy',element);
     }
 
     render(){
         return (
+            
+            <div>
+            <NavBar></NavBar>
             <Container>
                 <Header>Seu novo encurtador de URL 🐶</Header>
                 <ContentContainer>
@@ -71,15 +74,18 @@ class HomePage extends React.Component{
                                                     autoFocus={true} 
                                                     placeholder="Digite a Url para encurtar"
                                                     defaultValue={vars.HOST_APP+this.state.code}
-                                                    ref={(input) => this.inputURL = input} />
+                                                    ref={(input) => this.inputURL = input}/>
                                         <InputGroup.Append>
-                                            <Button variant="outline-secondary" onClick={() => this.copyToClipboard}>Copiar</Button>
+                                            <Button variant="outline-secondary" onClick={this.copyToClipboard}>Copiar</Button>
                                         </InputGroup.Append>
                         
                                     </InputGroup>
                                     <p>Para acompanhar as estatisticas, acesse <b>{vars.HOST_APP+this.state.code}</b></p>
                                     <ContentContainer>
                                     <img src={`https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=${vars.HOST_APP+this.state.code}`}/>
+                                    </ContentContainer>
+                                    <ContentContainer>
+                                    <a href={`https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=${vars.HOST_APP+this.state.code}`}  className="btn btn-primary">Visualizar e Salvar</a>
                                     </ContentContainer>
                                 </>
                             )
@@ -93,6 +99,7 @@ class HomePage extends React.Component{
                     <AdsBlock>Adsense</AdsBlock>
                 </ContentContainer>
             </Container>
+            </div>
         )
     }
 }

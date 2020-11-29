@@ -3,7 +3,8 @@ import database from './database';
 
 database.sync({force: true});
 
-app.listen(3001,()=>{
-    console.log("Servidor online");
+var port = process.env.PORT || 3001;
+app.listen(port, function () {
+    console.log('Umbler listening on port %s', port);
 });
 
